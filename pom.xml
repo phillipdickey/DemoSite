@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.broadleafcommerce</groupId>
         <artifactId>broadleaf-boot-starter-parent</artifactId>
-        <version>6.0.9-GA</version>
+        <version>6.0.9.1-GA</version>
         <relativePath />
     </parent>
 
@@ -21,11 +21,33 @@
             <id>public snapshots</id>
             <name>public snapshots</name>
             <url>http://nexus.broadleafcommerce.org/nexus/content/groups/community-snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>public releases</id>
             <name>public releases</name>
             <url>http://nexus.broadleafcommerce.org/nexus/content/groups/community-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>enterprise-releases</id>
+            <name>enterprise-releases</name>
+            <url>http://nexus.broadleafcommerce.org/nexus/content/groups/enterprise-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>enterprise-source-releases</id>
+            <name>enterprise-releases</name>
+            <url>http://nexus.broadleafcommerce.org/nexus/content/groups/enterprise-basic-source-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 

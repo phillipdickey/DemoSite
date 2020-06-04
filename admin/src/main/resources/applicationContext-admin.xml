@@ -25,5 +25,8 @@
         <!-- Apply Admin entity metadata overrides here -->
 
     </mo:override>
+    <bean id="openEventEntityManagerInViewFilter" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter">
+        <property name="entityManagerFactoryBeanName" value="blEntityManagerFactoryEventInfo"/>
+    </bean>
 
 </beans>

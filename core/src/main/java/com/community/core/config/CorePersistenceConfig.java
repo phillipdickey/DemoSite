@@ -1,18 +1,18 @@
 package com.community.core.config;
 
-import org.broadleafcommerce.common.extensibility.context.merge.Merge;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.MapFactoryBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
+
+import org.broadleafcommerce.common.extensibility.context.merge.Merge;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.MapFactoryBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * 
@@ -34,6 +34,11 @@ public class CorePersistenceConfig {
     @Qualifier("webStorageDS")
     DataSource webStorageDS;
 
+    @Autowired
+    @Qualifier("webEventDS" +
+        "")
+    DataSource eventDS;
+
     @Bean
     public MapFactoryBean blMergedDataSources() throws Exception {
         MapFactoryBean mapFactoryBean = new MapFactoryBean();
@@ -41,6 +46,7 @@ public class CorePersistenceConfig {
         sourceMap.put("jdbc/web", webDS);
         sourceMap.put("jdbc/webSecure", webSecureDS);
         sourceMap.put("jdbc/cmsStorage", webStorageDS);
+        sourceMap.put("jdbc/event", eventDS);
         mapFactoryBean.setSourceMap(sourceMap);
 
         return mapFactoryBean;
